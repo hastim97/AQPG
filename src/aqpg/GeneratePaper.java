@@ -7,34 +7,28 @@ package aqpg;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Mehta
  */
-public class AddQuestion extends javax.swing.JFrame {
+public class GeneratePaper extends javax.swing.JFrame {
 
     /**
-     * Creates new form AddQuestion
+     * Creates new form GeneratePaper
      */
     Connection cn;
     Statement st;
     boolean active=true;
-    public AddQuestion() {
+    public GeneratePaper() {
         initComponents();
         try{
             Class.forName("com.mysql.jdbc.Driver");
             cn=(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/SEProj?zeroDateTimeBehavior=convertToNull","Hasti","hasti");
             st=(com.mysql.jdbc.Statement) cn.createStatement();
-//            JOptionPane.showMessageDialog(null,"Connected");
         }
         catch(Exception e){
-//            JOptionPane.showMessageDialog(null,"Not Connected");
         }
     }
 
@@ -52,18 +46,19 @@ public class AddQuestion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ta = new javax.swing.JTextArea();
         cb1 = new javax.swing.JComboBox<>();
         cb2 = new javax.swing.JComboBox<>();
         cb3 = new javax.swing.JComboBox<>();
         cb4 = new javax.swing.JComboBox<>();
-        cb5 = new javax.swing.JComboBox<>();
+        cb7 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        cb6 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         tf = new javax.swing.JTextField();
+        cb5 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,20 +70,14 @@ public class AddQuestion extends javax.swing.JFrame {
 
         jLabel4.setText("Enter the Subject :");
 
-        jLabel5.setText("Enter the Question :");
-
-        jButton1.setText("Add Question");
+        jButton1.setText("Generate Paper");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Enter the Weightage :");
-
-        ta.setColumns(20);
-        ta.setRows(5);
-        jScrollPane1.setViewportView(ta);
+        jLabel6.setText("Enter the Difficulty Level :");
 
         cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer", "I.T.", "EXTC", "EXTR" }));
         cb1.addActionListener(new java.awt.event.ActionListener() {
@@ -113,46 +102,65 @@ public class AddQuestion extends javax.swing.JFrame {
 
         cb4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maths", "Physics", "Chemistry", "Mechanics", "CMS" }));
 
-        cb5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy", "Medium", "Difficult" }));
-        cb5.addActionListener(new java.awt.event.ActionListener() {
+        cb7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy", "Medium", "Difficult" }));
+        cb7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb5ActionPerformed(evt);
+                cb7ActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Enter the Module Number :");
+        jLabel7.setText("Enter the Number of Modules :");
+
+        jLabel8.setText("Enter the Number of Questions Per Module :");
+
+        cb6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+
+        jLabel9.setText("Enter the Marks Per Module :");
+
+        tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfActionPerformed(evt);
+            }
+        });
+
+        cb5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(66, 66, 66)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cb4, javax.swing.GroupLayout.Alignment.LEADING, 0, 150, Short.MAX_VALUE)
+                            .addComponent(cb3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(88, 88, 88)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(cb4, javax.swing.GroupLayout.Alignment.LEADING, 0, 150, Short.MAX_VALUE)
-                                .addComponent(cb3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cb2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cb1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(tf, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cb5, javax.swing.GroupLayout.Alignment.LEADING, 0, 150, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                            .addComponent(tf, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cb7, javax.swing.GroupLayout.Alignment.TRAILING, 0, 150, Short.MAX_VALUE)
+                            .addComponent(cb5, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb6, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,24 +181,25 @@ public class AddQuestion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cb4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cb5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
+                    .addComponent(cb5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(cb6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
                     .addComponent(tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(cb7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,31 +224,28 @@ public class AddQuestion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try{
-            String branch=cb1.getSelectedItem().toString();
-            String year=cb2.getSelectedItem().toString();
-            String sem=cb3.getSelectedItem().toString();
-            String subject=cb4.getSelectedItem().toString();
-            String question=ta.getText().trim();
-            String level=cb5.getSelectedItem().toString();
-            int module=Integer.parseInt(tf.getText().toString());
-            String query="INSERT into questions (branch,year,sem,subject,level,question,module) values ('"+branch+"','"+year+"','"+sem+"','"+subject+"','"+level+"','"+question+"',"+module+")";
-            if(question.length()>0)
-            {
-                st.executeUpdate(query);
-                JOptionPane.showMessageDialog(null, "Question Inserted Successfully!");
-                this.dispose();
-            }
-            else
-                JOptionPane.showMessageDialog(null, "Fill all the Fields!");
-        } catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Fill all the Fields!");
-        }
+        String gBranch=(String) cb1.getSelectedItem();
+        String gYear=cb2.getSelectedItem().toString();
+        String gSem=cb3.getSelectedItem().toString();
+        String gSubject=cb4.getSelectedItem().toString();
+        String gNModule=cb5.getSelectedItem().toString();
+        String gQModule=cb6.getSelectedItem().toString();
+        int gMModule=Integer.parseInt(tf.getText());
+        String gLevel=cb7.getSelectedItem().toString();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
+    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
+        // TODO add your handling code here:
+        if(active)
+        {
+            cb4.removeAllItems();
+            setSubject();        
+        }
+    }//GEN-LAST:event_cb1ActionPerformed
+
     private void cb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb2ActionPerformed
         // TODO add your handling code here:
-
         if(active)
         {
             String year=cb2.getSelectedItem().toString();
@@ -275,29 +281,22 @@ public class AddQuestion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cb2ActionPerformed
 
-    
-    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
-        // TODO add your handling code here:
-        if(active)
-        {
-            cb4.removeAllItems();
-            setSubject();        
-        }
-    }//GEN-LAST:event_cb1ActionPerformed
-
     private void cb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb3ActionPerformed
-        // TODO add your handling code here:
+        //
         if(active)
         {
             cb4.removeAllItems();
             setSubject();
         }
-        
     }//GEN-LAST:event_cb3ActionPerformed
 
-    private void cb5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb5ActionPerformed
+    private void cb7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cb5ActionPerformed
+    }//GEN-LAST:event_cb7ActionPerformed
+
+    private void tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,20 +315,20 @@ public class AddQuestion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddQuestion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GeneratePaper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddQuestion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GeneratePaper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddQuestion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GeneratePaper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddQuestion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GeneratePaper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddQuestion().setVisible(true);
+                new GeneratePaper().setVisible(true);
             }
         });
     }
@@ -598,17 +597,18 @@ public class AddQuestion extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb3;
     private javax.swing.JComboBox<String> cb4;
     private javax.swing.JComboBox<String> cb5;
+    private javax.swing.JComboBox<String> cb6;
+    private javax.swing.JComboBox<String> cb7;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea ta;
     private javax.swing.JTextField tf;
     // End of variables declaration//GEN-END:variables
 }
