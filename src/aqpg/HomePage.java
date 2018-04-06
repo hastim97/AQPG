@@ -5,6 +5,11 @@
  */
 package aqpg;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mehta
@@ -14,8 +19,19 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
+    Connection cn;
+    Statement st;
+    boolean active=true;
+    
     public HomePage(String name){
         initComponents();
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            cn=(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/SEProj?zeroDateTimeBehavior=convertToNull","Hasti","hasti");
+            st=(com.mysql.jdbc.Statement) cn.createStatement();
+        }
+        catch(Exception e){
+        }
         this.setVisible(true);
         tName.setText(name);
         tName.setEditable(false);
@@ -33,8 +49,36 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tName = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta = new javax.swing.JTextArea();
+        cb1 = new javax.swing.JComboBox<>();
+        cb2 = new javax.swing.JComboBox<>();
+        cb3 = new javax.swing.JComboBox<>();
+        cb4 = new javax.swing.JComboBox<>();
+        cb5 = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        cb6 = new javax.swing.JComboBox<>();
+        cb7 = new javax.swing.JComboBox<>();
+        cb8 = new javax.swing.JComboBox<>();
+        cb9 = new javax.swing.JComboBox<>();
+        cb10 = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        tf1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,38 +96,260 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Add New Question");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Enter the Branch :");
+
+        jLabel3.setText("Enter the Year :");
+
+        jLabel4.setText("Enter the Semester :");
+
+        jLabel5.setText("Enter the Subject :");
+
+        jLabel6.setText("Enter the Question :");
+
+        jButton3.setText("Add Question");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Generate Paper");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setText("Enter the Weightage :");
+
+        ta.setColumns(20);
+        ta.setRows(5);
+        jScrollPane1.setViewportView(ta);
+
+        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer", "I.T.", "EXTC", "EXTR" }));
+        cb1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cb1ActionPerformed(evt);
             }
         });
+
+        cb2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First", "Second", "Third", "Fourth" }));
+        cb2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb2ActionPerformed(evt);
+            }
+        });
+
+        cb3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1st", "2nd" }));
+        cb3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb3ActionPerformed(evt);
+            }
+        });
+
+        cb4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maths", "Physics", "Chemistry", "Mechanics", "CMS" }));
+
+        cb5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy", "Medium", "Difficult" }));
+        cb5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(88, 88, 88)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cb4, javax.swing.GroupLayout.Alignment.LEADING, 0, 150, Short.MAX_VALUE)
+                                .addComponent(cb3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cb5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(130, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(cb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cb4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(cb5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addComponent(jButton3)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Add New Question", jPanel2);
+
+        jLabel9.setText("Enter the Branch :");
+
+        jLabel10.setText("Enter the Year :");
+
+        jLabel11.setText("Enter the Semester :");
+
+        jLabel12.setText("Enter the Subject :");
+
+        jButton4.setText("Generate Paper");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Enter the Difficulty Level :");
+
+        cb6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer", "I.T.", "EXTC", "EXTR" }));
+        cb6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb6ActionPerformed(evt);
+            }
+        });
+
+        cb7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First", "Second", "Third", "Fourth" }));
+        cb7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb7ActionPerformed(evt);
+            }
+        });
+
+        cb8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1st", "2nd" }));
+        cb8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb8ActionPerformed(evt);
+            }
+        });
+
+        cb9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maths", "Physics", "Chemistry", "Mechanics", "CMS" }));
+
+        cb10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy", "Medium", "Difficult" }));
+        cb10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb10ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Enter the Total Marks :");
+
+        tf1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14))
+                        .addGap(139, 139, 139)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cb9, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb8, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb7, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb6, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cb10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(cb6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cb7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(cb8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(cb9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(cb10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jButton4)
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Generate Question Paper", jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,11 +358,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jButton1)
-                .addGap(42, 42, 42)
-                .addComponent(jButton2)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,18 +385,163 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tNameActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cb5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb5ActionPerformed
         // TODO add your handling code here:
-//        this.setVisible(false);
-        AddQuestion aq=new AddQuestion();
-        aq.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cb5ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb3ActionPerformed
         // TODO add your handling code here:
-        GeneratePaper gp=new GeneratePaper();
-        gp.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        if(active)
+        {
+            cb4.removeAllItems();
+            setSubjectTab1();
+        }
+    }//GEN-LAST:event_cb3ActionPerformed
+
+    private void cb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb2ActionPerformed
+        // TODO add your handling code here:
+
+        if(active)
+        {
+            String year=cb2.getSelectedItem().toString();
+            active=false;
+            System.out.println(year);
+            cb3.removeAllItems();
+            switch(year){
+                case "First":
+                cb3.addItem("1st");
+                cb3.addItem("2nd");
+                break;
+                case "Second":
+                cb3.addItem("3rd");
+                cb3.addItem("4th");
+                break;
+                case "Third":
+                cb3.addItem("5th");
+                cb3.addItem("6th");
+                break;
+                case "Fourth":
+                cb3.addItem("7th");
+                cb3.addItem("8th");
+                break;
+                default:
+                System.out.println("HIII");
+            }
+            cb3.setSelectedIndex(0);
+            active=true;
+            //            System.out.println("HI"+cb3.getSelectedItem());
+            cb4.removeAllItems();
+            setSubjectTab1();
+
+        }
+    }//GEN-LAST:event_cb2ActionPerformed
+
+    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
+        // TODO add your handling code here:
+        if(active)
+        {
+            cb4.removeAllItems();
+            setSubjectTab1();
+        }
+    }//GEN-LAST:event_cb1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        try{
+            String branch=cb1.getSelectedItem().toString();
+            String year=cb2.getSelectedItem().toString();
+            String sem=cb3.getSelectedItem().toString();
+            String subject=cb4.getSelectedItem().toString();
+            String question=ta.getText().trim();
+            String level=cb5.getSelectedItem().toString();
+            String query="INSERT into questions (branch,year,sem,subject,level,question) values ('"+branch+"','"+year+"','"+sem+"','"+subject+"','"+level+"','"+question+"')";
+            if(question.length()>0)
+            {
+                st.executeUpdate(query);
+                JOptionPane.showMessageDialog(null, "Question Inserted Successfully!");
+//                this.dispose();
+            }
+            else
+            JOptionPane.showMessageDialog(null, "Fill all the Fields!");
+        } catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Fill all the Fields!"+ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        String gBranch=(String) cb6.getSelectedItem();
+        String gYear=cb7.getSelectedItem().toString();
+        String gSem=cb8.getSelectedItem().toString();
+        String gSubject=cb9.getSelectedItem().toString();
+        int gMarks=Integer.parseInt(tf1.getText());
+        String gLevel=cb10.getSelectedItem().toString();
+        WordDocument wd=new WordDocument(gBranch,gYear,gSem,gSubject,gMarks,gLevel);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void cb6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb6ActionPerformed
+        // TODO add your handling code here:
+        if(active)
+        {
+            cb9.removeAllItems();
+            setSubjectTab2();
+        }
+    }//GEN-LAST:event_cb6ActionPerformed
+
+    private void cb7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb7ActionPerformed
+        // TODO add your handling code here:
+        if(active)
+        {
+            String year=cb7.getSelectedItem().toString();
+            active=false;
+            System.out.println(year);
+            cb8.removeAllItems();
+            switch(year){
+                case "First":
+                cb8.addItem("1st");
+                cb8.addItem("2nd");
+                break;
+                case "Second":
+                cb8.addItem("3rd");
+                cb8.addItem("4th");
+                break;
+                case "Third":
+                cb8.addItem("5th");
+                cb8.addItem("6th");
+                break;
+                case "Fourth":
+                cb8.addItem("7th");
+                cb8.addItem("8th");
+                break;
+                default:
+                System.out.println("HIII");
+            }
+            cb8.setSelectedIndex(0);
+            active=true;
+            //            System.out.println("HI"+cb3.getSelectedItem());
+            cb9.removeAllItems();
+            setSubjectTab2();
+
+        }
+    }//GEN-LAST:event_cb7ActionPerformed
+
+    private void cb8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb8ActionPerformed
+        //
+        if(active)
+        {
+            cb9.removeAllItems();
+            setSubjectTab2();
+        }
+    }//GEN-LAST:event_cb8ActionPerformed
+
+    private void cb10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb10ActionPerformed
+
+    private void tf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,12 +577,558 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void setSubjectTab2(){
+        String branch=cb6.getSelectedItem().toString();
+        String year=cb7.getSelectedItem().toString();
+        String sem=new String();
+        if(cb8.getSelectedIndex()!=-1)
+            sem=cb8.getSelectedItem().toString();
+  
+        String subjects[]=new String[10];
+        switch(branch)
+        {
+            case "Computer":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths ";
+                        subjects[1]="Data Structures";
+                        subjects[2]="DLDA";
+                        subjects[3]="Discrete";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="AOA";
+                        subjects[2]="COA";
+                        subjects[3]="Operating System";
+                    }  
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Microprocessor";
+                        subjects[1]="OS";
+                        subjects[2]="SOOAD";
+                        subjects[3]="Computer Networks";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="SPCC";
+                        subjects[1]="Software Engineering";
+                        subjects[2]="MCC";
+                        subjects[3]="DDBS";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="Digital Signal Processing";
+                        subjects[1]="System Security";
+                        subjects[2]="AI";
+                        subjects[3]="Elective";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="Data Warehouse";
+                        subjects[1]="Human Machine Interaction";
+                        subjects[2]="Distributed Systems";
+                        subjects[3]="Elective";
+                    }
+                }
+                break;
+            case "I.T.":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths";
+                        subjects[1]="Adv Data Structures";
+                        subjects[2]="Discrete";
+                        subjects[3]="DLDA";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="COA";
+                        subjects[2]="DBMS";
+                        subjects[3]="Operating System";
+                    }
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Grpahics and VR";
+                        subjects[1]="OS";
+                        subjects[2]="Microcontroller and Embedded";
+                        subjects[3]="BCE";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="SE";
+                        subjects[1]="Web Security";
+                        subjects[2]="Distributed Systems";
+                        subjects[3]="Data Mining";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="Software Project Mgmt";
+                        subjects[1]="Cloud Computing";
+                        subjects[2]="Intelligent Systems";
+                        subjects[3]="Image Processing";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="Big Data";
+                        subjects[1]="SNMR";
+                        subjects[2]="CSM";
+                        subjects[3]="ERP";
+                    }
+                }
+                break;
+            case "EXTC":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths";
+                        subjects[1]="Circuit Theory";
+                        subjects[2]="Digital Circuits";
+                        subjects[3]="Signals and Systems";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="Integrated Circuit";
+                        subjects[2]="PCS";
+                        subjects[3]="Wave Propogation";
+                    }
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Microcontroller and App";
+                        subjects[1]="Analog Communication";
+                        subjects[2]="Random Signal Analysis";
+                        subjects[3]="Integrated Circuits";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="Digital Communication";
+                        subjects[1]="Discrete Signal";
+                        subjects[2]="Communication Networks";
+                        subjects[3]="TV Engineering";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="Image and Video Processing";
+                        subjects[1]="MCC";
+                        subjects[2]="OCN";
+                        subjects[3]="MRE";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="WCN";
+                        subjects[1]="SCN";
+                        subjects[2]="IVC";
+                        subjects[3]="Speech Processing";
+                    }
+                }
+                break;
+            case "ETRX":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths";
+                        subjects[1]="Analog Electronics";
+                        subjects[2]="Circuit Theory";
+                        subjects[3]="Digital Circuits";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="Analog Electronics";
+                        subjects[2]="PCS";
+                        subjects[3]="COA";
+                    }
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Microcontroller and App";
+                        subjects[1]="Linear Integrated Circuits";
+                        subjects[2]="Signals and Systems";
+                        subjects[3]="Digital Communication";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="VLSI Design";
+                        subjects[1]="Computer Organization";
+                        subjects[2]="Power Electronics";
+                        subjects[3]="DSPP";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="ESD";
+                        subjects[1]="ICT";
+                        subjects[2]="Power Electronics";
+                        subjects[3]="CCN";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="VLSI Design";
+                        subjects[1]="ANT";
+                        subjects[2]="MEMS";
+                        subjects[3]="Elective";
+                    }
+                }
+                break;
+            default:
+//                System.out.println("NOT");
+        }
+        for(String s:subjects){
+            cb9.addItem(s);
+        }
+        cb9.setSelectedIndex(0);
+        }
+   
+    public void setSubjectTab1(){
+        String branch=cb1.getSelectedItem().toString();
+        String year=cb2.getSelectedItem().toString();
+        String sem=new String();
+        if(cb3.getSelectedIndex()!=-1)
+            sem=cb3.getSelectedItem().toString();
+  
+        String subjects[]=new String[10];
+        switch(branch)
+        {
+            case "Computer":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths ";
+                        subjects[1]="Data Structures";
+                        subjects[2]="DLDA";
+                        subjects[3]="Discrete";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="AOA";
+                        subjects[2]="COA";
+                        subjects[3]="Operating System";
+                    }  
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Microprocessor";
+                        subjects[1]="OS";
+                        subjects[2]="SOOAD";
+                        subjects[3]="Computer Networks";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="SPCC";
+                        subjects[1]="Software Engineering";
+                        subjects[2]="MCC";
+                        subjects[3]="DDBS";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="Digital Signal Processing";
+                        subjects[1]="System Security";
+                        subjects[2]="AI";
+                        subjects[3]="Elective";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="Data Warehouse";
+                        subjects[1]="Human Machine Interaction";
+                        subjects[2]="Distributed Systems";
+                        subjects[3]="Elective";
+                    }
+                }
+                break;
+            case "I.T.":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths";
+                        subjects[1]="Adv Data Structures";
+                        subjects[2]="Discrete";
+                        subjects[3]="DLDA";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="COA";
+                        subjects[2]="DBMS";
+                        subjects[3]="Operating System";
+                    }
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Grpahics and VR";
+                        subjects[1]="OS";
+                        subjects[2]="Microcontroller and Embedded";
+                        subjects[3]="BCE";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="SE";
+                        subjects[1]="Web Security";
+                        subjects[2]="Distributed Systems";
+                        subjects[3]="Data Mining";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="Software Project Mgmt";
+                        subjects[1]="Cloud Computing";
+                        subjects[2]="Intelligent Systems";
+                        subjects[3]="Image Processing";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="Big Data";
+                        subjects[1]="SNMR";
+                        subjects[2]="CSM";
+                        subjects[3]="ERP";
+                    }
+                }
+                break;
+            case "EXTC":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths";
+                        subjects[1]="Circuit Theory";
+                        subjects[2]="Digital Circuits";
+                        subjects[3]="Signals and Systems";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="Integrated Circuit";
+                        subjects[2]="PCS";
+                        subjects[3]="Wave Propogation";
+                    }
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Microcontroller and App";
+                        subjects[1]="Analog Communication";
+                        subjects[2]="Random Signal Analysis";
+                        subjects[3]="Integrated Circuits";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="Digital Communication";
+                        subjects[1]="Discrete Signal";
+                        subjects[2]="Communication Networks";
+                        subjects[3]="TV Engineering";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="Image and Video Processing";
+                        subjects[1]="MCC";
+                        subjects[2]="OCN";
+                        subjects[3]="MRE";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="WCN";
+                        subjects[1]="SCN";
+                        subjects[2]="IVC";
+                        subjects[3]="Speech Processing";
+                    }
+                }
+                break;
+            case "ETRX":
+                if(year=="First"){
+                    if(sem=="1st"){
+                        subjects[0]="Maths 1";
+                        subjects[1]="Physics 1";
+                        subjects[2]="Chemistry 1";
+                        subjects[3]="Mechanics";
+//                        subjects[4]="CMS";
+                    }
+                    else if(sem=="2nd"){
+                        subjects[0]="Maths 2";
+                        subjects[1]="Physics 2";
+                        subjects[2]="Chemistry 2";
+                        subjects[3]="Graphics";
+//                        subjects[4]="EVS";
+                    }
+                }
+                else if(year=="Second"){
+                    if(sem=="3rd"){
+                        subjects[0]="Maths";
+                        subjects[1]="Analog Electronics";
+                        subjects[2]="Circuit Theory";
+                        subjects[3]="Digital Circuits";
+                    }
+                    else if(sem=="4th"){
+                        subjects[0]="Maths";
+                        subjects[1]="Analog Electronics";
+                        subjects[2]="PCS";
+                        subjects[3]="COA";
+                    }
+                }
+                else if(year=="Third"){
+                    if(sem=="5th"){
+                        subjects[0]="Microcontroller and App";
+                        subjects[1]="Linear Integrated Circuits";
+                        subjects[2]="Signals and Systems";
+                        subjects[3]="Digital Communication";
+                    }
+                    else if(sem=="6th"){
+                        subjects[0]="VLSI Design";
+                        subjects[1]="Computer Organization";
+                        subjects[2]="Power Electronics";
+                        subjects[3]="DSPP";
+                    }
+                }
+                else if(year=="Fourth"){
+                    if(sem=="7th"){
+                        subjects[0]="ESD";
+                        subjects[1]="ICT";
+                        subjects[2]="Power Electronics";
+                        subjects[3]="CCN";
+                    }
+                    else if(sem=="8th"){
+                        subjects[0]="VLSI Design";
+                        subjects[1]="ANT";
+                        subjects[2]="MEMS";
+                        subjects[3]="Elective";
+                    }
+                }
+                break;
+            default:
+//                System.out.println("NOT");
+        }
+        for(String s:subjects){
+            cb4.addItem(s);
+        }
+        cb4.setSelectedIndex(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> cb1;
+    private javax.swing.JComboBox<String> cb10;
+    private javax.swing.JComboBox<String> cb2;
+    private javax.swing.JComboBox<String> cb3;
+    private javax.swing.JComboBox<String> cb4;
+    private javax.swing.JComboBox<String> cb5;
+    private javax.swing.JComboBox<String> cb6;
+    private javax.swing.JComboBox<String> cb7;
+    private javax.swing.JComboBox<String> cb8;
+    private javax.swing.JComboBox<String> cb9;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField tName;
+    private javax.swing.JTextArea ta;
+    private javax.swing.JTextField tf1;
     // End of variables declaration//GEN-END:variables
 }
